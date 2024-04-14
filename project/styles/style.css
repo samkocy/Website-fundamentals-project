@@ -1,0 +1,602 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(Roboto-Regular.ttf);
+}
+* { /* affects all elemets  */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* includes padding in width and height calculation */
+    text-decoration: none;
+}
+body {
+    overflow-x: hidden; /* prevents horizontal scrolling */
+    min-height: 100vh; /* body is always as tall as a viewport */
+    font-family: 'Roboto';
+}
+/* header styling */
+header {
+    height: 14vh;
+    display: flex;
+    align-items: center; /* vertically centered within the container */
+}
+.logo { 
+    height: 12vh;
+    border-radius: 6vh;
+    border: 1.5px dotted black;
+    margin-left: 1vh;
+}
+header h1 {
+    font-size: 6vh;
+    margin-left: auto; /* horizontal centering */
+    margin-right: auto; 
+    padding-right: 13vh; /* since I adjusted the left margin of the logo, I must set the padding to center the h1 */
+}
+/* main navigation styling */
+.menu {
+    background-color: black;
+    padding: 1.3%;
+    position: sticky; /* element stays anchored on screen while scrolling */
+    width: 100%;
+    z-index: 1000; /* will be displayed ont top of elements with a lower value */
+    top: 0; /* distance of the top edge */
+}
+.menu ul {
+    font-size: 1.6vh;
+    text-align: center;
+}
+.menu ul li {
+    list-style-type: none;
+    display: inline;
+}
+.menu ul li a {
+    color: white;
+    padding: 1.3% 10% 0.7% 10%;
+}
+.menu ul li :hover, #active {
+    border-bottom: 0.4vh solid rgb(100, 100, 100);
+}
+.menu ul li a {
+    transition: 0.15s;
+    cursor: pointer;
+}
+/* foooter styling */
+footer {
+    text-align: center;
+}
+.container_footer {
+    display: flex;
+    gap: 18%;
+    margin: 12%;
+    margin-top: 25vh;
+    justify-content: center; /* horizontally centers the flex items within the flex container */
+}
+.text_footer {
+    flex-basis: 30%;
+    margin-top: 10vh;
+    line-height: 1.2em;
+}
+.text_footer p, .star {
+    color: red;
+    margin-bottom: 1vh;
+}
+.star {
+    margin: 4px;
+}
+.text_footer h2 {
+    font-size: 3vh;
+    margin-top: 2vh;
+}
+.text_footer form, .text_footer p {
+    text-align: left;
+}
+.email_button {
+    background-color: grey;
+    color: white;
+    width: 10%;
+}
+.form {
+    flex-basis: 30%;
+}
+.form h2 {
+    font-size: 3vh;
+    margin-bottom: 2vh;
+}
+input[type=text], input[type=number], input[type=email], textarea {
+    width: 100%;
+    padding: 2%;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 6px; 
+    margin-bottom: 16px;
+    font-size: 1.7vh;
+    text-align: left;
+}
+#request {
+    height: 200px;
+}
+#form_button, #email_button {
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+#form_button {
+    border-radius: 2vh;
+    width: 100%;
+    height: 6vh;
+    font-size: 3vh;
+    background-color: black;
+}
+#email_button {
+    border-radius: 1vh;
+    width: 30%;
+    height: 3vh;
+    font-size: 2vh;
+    background-color: grey;
+}
+#email_button:hover {
+    color: grey;
+    border: 1px solid grey;
+    background-color: white;
+}
+#form_button:hover {
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+}
+.footer_nav {
+    width: 100%;
+    background-color: black;
+    font-size: 1.7vh;
+    bottom: 0; left: 0;/* fixes footer at the bottom */ 
+    padding: 2%;
+    padding-bottom: 1%;
+}
+.footer_nav nav ul li {
+    display: inline;
+    padding: 3%;
+}
+.footer_nav nav ul li a {
+    transition: 0.15s;
+    cursor: pointer;
+    color: white;
+}
+.footer_nav p {
+    padding: 1.5%;
+    padding-bottom: 0.5%;
+    text-decoration: underline;
+    color: white;
+}
+
+/* home page styling */
+/* background styling */
+#background_home {
+    position: relative; /* setting an ancestor */
+    width: 100%;
+    height: 100vh; /* viewport height = % of the height of the viewport */
+    margin-bottom: 2%;
+}
+#background_home::before { /* background image styling */
+    content: ""; /* must be there, inserts no content before the element */
+    background-image: url(../images/header.jpeg);
+    background-size: cover; /* covers entire page */
+    position: absolute; /* child element */
+    inset: 0; /* same as top: 0; right: 0; bottom: 0; left: 0; */
+    filter: brightness(0.3);
+}
+#text_home {
+    position: relative;
+    color: white; 
+    width: 33%;
+    margin: 25% 18% 0 0;
+    float: right;
+}
+#text_home p {
+    font-size: 2.5vh;
+}
+#text_home h3 {
+    margin-bottom: 3%;
+    font-size: 3.5vh;
+}
+/* navigation styling */
+#navigation_home {
+    display: inline-block;
+    padding: 22% 0 0 18%;
+    max-height: 10%; min-height: 10%;
+}
+#navigation_home ul {
+    font-size: 3vh;
+    position: relative; /* positions element relative to normal flow */
+}
+#navigation_home ul li {
+    background-color: white;
+    margin-bottom: 2vh;
+    padding: 2vh;
+    width: 20vh;
+    border-radius: 0.8vh;
+    text-align: center;
+    list-style-type: none;
+}
+#navigation_home ul li {
+    transition: 0.15s;
+}
+#navigation_home ul li:hover {
+    background-color: black;
+    cursor: pointer;
+}
+#navigation_home ul li a {
+    color: black;
+}
+#navigation_home ul li:hover a {
+    color: white;
+}
+/* map styling */
+#map iframe {
+    width: 60%;
+    height: 30vh;
+    margin-left: 20%; 
+}
+#map h2 {
+    text-align: center;
+    margin-top: 3%;
+    margin-bottom: 1%;
+    font-size: 3vh;
+}
+
+/* recipes page styling */
+#main_recipes {
+    width: 85%;
+    display: inline-block;
+    border-bottom: 2px solid black;
+}
+.container_recipes {
+    display: flex; /* allows flexible layout of items within home_row container */
+    justify-content: center; /* center items in a container when used with display:flex; */
+    flex-wrap: wrap;
+    gap: 1%;
+}
+.container_recipes:first-child {
+    margin-top: 1%;
+}
+.image_recipe_recipes, .image_recipe_home {
+    position: relative;
+    margin-bottom: 1%;
+    overflow: hidden;
+}
+.image_recipe_recipes {
+    flex-basis: 23%;
+    height: 40vh;
+}
+.image_recipe_home {
+    flex-basis: 21%;
+    height: 40vh;
+}
+.image_recipe_home img, .image_recipe_recipes img {
+    transition: filter 1.5s ease, transform 1.5s ease; /* the filter slowly darkens the color, the transform slowly make the image larger */ 
+    width: 100%;
+}
+.image_recipe_home:hover img, .image_recipe_recipes:hover img {
+    transform: scale(1.1); /* makes the image bigger */
+    filter: brightness(70%); /* darkens the image to 70% */
+}
+.recipe_text {
+    position: absolute; /* child element, placed within the image_recipe_recipes section */
+    bottom: 0; left: 0;
+    color: white;
+    background-color: black;
+    height: 45%;
+    width: 100%;
+    text-align: center;
+}
+.recipe_text h3 {
+    margin-top: 3vh;
+    margin-bottom: 5vh;
+    font-size: 1.7em; 
+}
+.recipe_text a {
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    border-radius: 1vh;
+    padding: 3% 11%;
+    font-size: 2vh;
+}
+.recipe_text p :hover {
+    background-color: white;
+    color: green;
+}
+.recipe_text a {
+    cursor: pointer;
+}
+/* our tip styling */
+#container_chicken {
+    border: 2px solid black;
+    margin: 4%;
+    margin-bottom: 5%;
+    border-radius: 5%;
+    box-shadow: 0 0 100px black;
+}
+#chicken {
+    display: flex;
+    border-bottom: 2px solid black;
+}
+#chicken_image {
+    width: 100%;
+    margin: 5%;
+}
+#chicken_image img {
+    width: 100%;
+}
+.chicken_text h3 {
+    margin: 6% 0;
+    font-size: 2.5vh;
+}
+.chicken_text .p {
+    display: inline-block;
+    margin-left: 6vh;
+    margin-bottom: 1vh;
+}
+#last_p {
+    display: block;
+    width: 92%;
+    line-height: 2.5vh;
+    margin-top: 4vh;
+    margin-right: 10vh;
+    margin-bottom: 5%;
+}
+.our_recipe {
+    margin: 4%;
+    text-align: center;
+    font-size: 2em;
+}
+#ingredients_instructions {
+    justify-content: center;
+    display: flex;
+    justify-content: space-evenly;
+    line-height: 3vh;
+}
+#ingredients, #instructions {
+    height: 48vh;
+    border: 2px solid black;
+    border-radius: 20px;
+    margin-top: 5%;
+    overflow: hidden;
+}
+#ingredients {
+    width: 30%;
+}
+#instructions {
+    width: 60%;
+}
+#ingredients h3, #instructions h3 {
+    margin: 2vh;
+}
+#ingredients ul {
+    font-size: 1.8vh;
+    padding-left: 10%;
+}
+#ingredients ul li {
+    list-style: circle;
+    margin-bottom: 1.67%;
+}
+#instructions ol {
+    font-size: 1.8vh;
+    padding-left: 6%;
+    padding-right: 3%;
+}
+#instructions ol li {
+    list-style: decimal;
+    margin-bottom: 1vh;
+}
+/* nutritional information table styling */
+#main_recipes figure {
+    width: 60%;
+    margin: 8% 20% 10% 20%;
+}
+figcaption {
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 25px; 
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid rgb(217, 215, 215);
+    padding: 8px;
+    text-align: center;
+}
+.main_recipes th, .main_recipes td {
+    width: 50%;
+}
+tfoot, thead {
+    background-color: #f2f2f2;
+}
+/* recipes aside styling */
+aside {
+    float: right;
+    width: 15%;
+    padding: 1.5% 1% 1.7% 3%;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    margin: 0;
+    position: sticky;
+    z-index: 999;
+    top: 5vh;
+}
+aside ul {
+    list-style-type: decimal;
+    padding-left: 0;
+    margin: 0;
+    font-size: 1.6vh;
+}
+aside ul li {
+    margin-bottom: 2.8vh;
+}
+aside ul li a {
+    text-decoration: none;
+    color: black;    
+}
+aside ul li a :hover {
+    cursor: pointer;
+}
+aside ul li a:visited {
+    color: inherit; /* inherits color from parent element */
+    text-decoration: none; /* removes underline */
+}
+aside #last {
+    margin-bottom: 0;
+}
+
+/* nutrition page styling */
+#introduction_nutrition {
+    margin: 0;
+}
+#introduction_nutrition_text {
+    width: 30%;
+    display: inline-block;
+    margin: 6% 0 0 11%;
+}
+#introduction_nutrition_text h2 {
+    margin-bottom: 3vh;
+    text-align: center;
+}
+#introduction_nutrition_text ul li {
+    margin-bottom: 1%;
+    line-height: 3vh;
+}
+#introduction_nutrition_image {
+    float: right;
+    width: 35%;
+    margin: 10% 10% 0 5%;
+}
+#introduction_nutrition_image img, #figcaption_nutrition_image {
+    width: 100%;
+}
+#figure_nutrition {
+    width: 80%;
+    margin: 10% auto 10% auto;
+}
+#main_nutrition th, #main_nutrition td {
+    width: 12.5%;
+}
+.nutrient {
+    text-decoration: underline;
+}
+#figcaption_nutrition {
+    margin-bottom: 4vh;
+}
+#figcaption_nutrition_image {
+    font-size: 1.2vh;
+    font-weight: 100;
+    text-align: end;
+}
+.container_nutrition {
+    width: 84%;
+    border: 2px solid black;
+    border-radius: 12vh;
+    padding: 2%;
+    margin: 4% auto 0 auto;
+    overflow: auto;
+    box-shadow: 0 0 100px black; /* horizontal shift, vertical shift, blur, color */
+}
+#last_nutrition {
+    margin-bottom: 0;
+}
+.container_nutrition h2 {
+    text-align: right;
+    margin: 2%;
+    margin-right: 20%;
+}
+.video_nutrition {
+    float: left;
+    width: 40%;
+    margin: 3%;
+    margin-right: 4%;
+}
+.video_nutrition iframe {
+    border: none;
+    width: 100%;
+}
+.text_nutrition {
+    text-align: justify;
+    margin: 2%;
+    margin-top: 5vh;
+    line-height: 2.8vh;
+    font-size: 1.7vh;
+}
+
+/* tips styling */
+#article_tips {
+    column-count: 3;
+    column-gap: 5%;
+    column-rule: 2px solid black;
+    width: 100%;
+    padding: 5%;
+    padding-top: 0;
+}
+#article_tips h2 {
+    font-size: 3vh;
+    margin:3% 0;
+    column-span: all;
+}
+#article_tips p {
+    margin-bottom: 5%;
+    text-align: justify;
+}
+/* tips form styling */
+#form_tips {
+    width: 70%;
+    margin: 5% auto;
+}
+#form_tips h2 {
+    text-align: center;
+    margin: 1%;
+    font-size: 2.7vh;
+}
+#form_tips fieldset {
+    margin-bottom: 5%;
+    padding: 2%;
+    background-color: rgb(220, 220, 220);
+}
+#form_tips legend {
+    font-weight: bold;
+    font-size: 1.8vh;
+}
+#form_tips label {
+    margin: 10px;
+    display: inline;
+}
+#form_tips input[type="number"],
+#form_tips input[type="email"],
+#form_tips input[type="text"],
+#form_tips input[type="password"],
+#form_tips select,
+#form_tips textarea {
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    border: 1px solid rgb(119, 119, 119);
+    border-radius: 5px;
+}
+#form_tips input[type="submit"],
+#form_tips input[type="reset"] {
+    width: 8%;
+    padding: 1%;
+    border: none;
+    background-color: rgb(0, 143, 0);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#form_tips input[type="submit"]:hover,
+#form_tips input[type="reset"]:hover {
+    background-color: green;
+}
+#form_tips input[type="radio"] {
+    margin-left: 50px;
+}
+#male {
+    margin-bottom: 20px;
+}
